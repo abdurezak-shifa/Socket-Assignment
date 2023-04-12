@@ -13,7 +13,7 @@ client_socket.send(bytes(name + "," + num, 'utf-8'))
 server_reply = client_socket.recv(1024)
 server_name, server_num = server_reply.decode('utf-8').split(",")
 
-# Print the results and compute the sum
+# Compute sum and Print the results 
 print("Client Name:", name)
 print("Server Name:", server_name)
 print("Client Number:", num)
@@ -21,5 +21,5 @@ print("Server Number:", server_num)
 sum = int(num) + int(server_num)
 print("Sum:", sum)
 
-# Close the client socket
+# Closing the client socket
 client_socket.close()
