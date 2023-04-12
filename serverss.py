@@ -3,14 +3,18 @@ import random
 
 # Create a TCP socket and start listening for incoming connections
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.bind(("127.0.0.1", 8500))
+server_address = ('127.0.0.1', 8500)
+server.bind(server_address)
 server.listen(1)
 
+# advertise the server's services
+print("Server is up and running on {}:{}".format(server_address[0], server_address[1]))
 # Accept incoming connections from clients
 while True:
     print("Waiting for client to enter what they want...")
     client, address = server.accept()
     print("Client connected:", address)
+
 
     # Receive the message from the client
     client_msg = client.recv(1024).decode('utf-8')
